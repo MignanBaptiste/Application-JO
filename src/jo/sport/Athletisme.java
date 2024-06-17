@@ -11,5 +11,6 @@ public class Athletisme extends Sport{
         this.coeffForce = 4;
         this.coeffAgilite = 3;
         this.coeffEndurance = 3;
+        this.nbjoueursmaxequipe = 4;
     }
 }

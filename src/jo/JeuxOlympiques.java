@@ -322,7 +322,7 @@ public class JeuxOlympiques {
                 }
                 try {
                     eqp.addAthlete(ath);
-                } catch (InvalidSexeException | AlreadyInException e) {
+                } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
                     System.out.println("Pas possible d'ajouter l'athlète " + ath.toString() + " à l'équipe " + eqp.toString());
                 }
             }

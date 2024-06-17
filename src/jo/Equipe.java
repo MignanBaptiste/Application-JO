@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jo.exception.AlreadyInException;
+import jo.exception.FilledElementException;
 import jo.exception.InvalidSexeException;
 import jo.exception.InvalidTypeException;
 import jo.sport.*;
@@ -48,8 +49,13 @@ public class Equipe implements Participant{
      * Ajoute un athlète à l'équipe et ajoute l'équipe à l'athlète.
      * @param ath L'athlète à ajouter.
      */
-    public void addAthlete(Athlete ath) throws InvalidSexeException, AlreadyInException{
-        if (this.athletes.isEmpty()){
+    public void addAthlete(Athlete ath) throws InvalidSexeException, AlreadyInException, FilledElementException{
+        if (this.sport instanceof Handball | this.sport instanceof VolleyBall | this.sport.getCategorie().contains("relais")){
+            if(this.athletes.size() == this.sport.getNombreJoueursMaxEquipe()){
+                throw new FilledElementException("Cette équipe est pleine");
+            }
+        }
+        if (this.sexe == null){
             this.sexe = ath.getSexe();
         }
         if(this.athletes.contains(ath)){

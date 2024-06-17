@@ -1,5 +1,6 @@
 import jo.*;
 import jo.exception.AlreadyInException;
+import jo.exception.FilledElementException;
 import jo.exception.InvalidSexeException;
 import jo.sport.*;
 import org.junit.*;
@@ -62,7 +63,7 @@ public class TestsEquipe {
         try {
             equ1.addAthlete(ath1);
             equ1.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         assertEquals(145, equ1.getForce());
@@ -74,7 +75,7 @@ public class TestsEquipe {
         try {
             equ1.addAthlete(ath1);
             equ1.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         
@@ -87,7 +88,7 @@ public class TestsEquipe {
         try {
             equ1.addAthlete(ath1);
             equ1.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         assertEquals(131, equ1.getEndurance());
@@ -98,7 +99,7 @@ public class TestsEquipe {
     public void testAddAthletes(){
         try {
             equ1.addAthlete(new Athlete("Manaudou", "Florent", Sexe.HOMME, 56, 87, 78, france));
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         assertEquals(1, equ1.getAthletes().size());
@@ -110,7 +111,7 @@ public class TestsEquipe {
         try {
             equ1.addAthlete(ath1);
             equ1.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         assertEquals(Arrays.asList(ath1, ath2), equ1.getAthletes());
@@ -124,7 +125,7 @@ public class TestsEquipe {
         Epreuve epv1 = new Epreuve(Sexe.HOMME, escrime);
         try {
             equ1.addAthlete(ath1);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des exceptions
         }
         equ1.participer(epv1);
@@ -140,7 +141,7 @@ public class TestsEquipe {
             equ1.addAthlete(ath1);
             equ2.addAthlete(ath2);
             equ3.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion exception
         }
         assertNotEquals(equ1, equ2);

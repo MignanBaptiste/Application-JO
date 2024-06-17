@@ -11,5 +11,6 @@ public class Natation extends Sport{
         this.coeffForce = 3;
         this.coeffAgilite = 2;
         this.coeffEndurance = 5;
+        nbjoueursmaxequipe = 4;
     }
 }

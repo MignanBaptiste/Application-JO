@@ -98,6 +98,10 @@ public class Epreuve<T extends Participant>{
             score += participant.getForce() * this.sport.getCoeffForce();
             score += participant.getAgilite() * this.sport.getCoeffAgilite();
             score += participant.getEndurance() * this.sport.getCoeffEndurance();
+            
+            double randomnombre = 0.5 + (Math.random() * 0.5);
+            score = (int) Math.round(score * randomnombre); // de cette manière ce n'est pas forcément le meilleur qui gagne
+
             res.put(participant, score);
         }
         return res;

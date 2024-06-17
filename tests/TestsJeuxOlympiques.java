@@ -1,5 +1,6 @@
 import jo.*;
 import jo.exception.AlreadyInException;
+import jo.exception.FilledElementException;
 import jo.exception.InvalidSexeException;
 import jo.exception.InvalidTypeException;
 import jo.sport.*;
@@ -47,7 +48,7 @@ public class TestsJeuxOlympiques {
         Athlete ath1 = new Athlete("Manaudou", "Florent", Sexe.HOMME, 56, 87, 78, france);
         try {
             equipeFrance.addAthlete(ath1);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des exceptions
         }
         HashSet<Equipe> hs = new HashSet<>();
@@ -82,7 +83,7 @@ public class TestsJeuxOlympiques {
         Athlete ath1 = new Athlete("Manaudou", "Florent", Sexe.HOMME, 56, 87, 78, france);
         try {
             equipeFrance.addAthlete(ath1);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des exceptions
         }
         jeux2024.addAthlete(ath1);
@@ -161,7 +162,7 @@ public class TestsJeuxOlympiques {
         try {
             equipeFrance.addAthlete(ath1);
             equipeUSA.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des exceptions
         }
         // Ajout des équipes aux épreuves
@@ -202,7 +203,7 @@ public class TestsJeuxOlympiques {
         try {
             equipeFrance.addAthlete(ath1);
             equipeUSA.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des erreurs
         }
         // Ajout des équipes aux épreuves
@@ -237,7 +238,7 @@ public class TestsJeuxOlympiques {
         try {
             equipeFrance.addAthlete(ath1);
             equipeUSA.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion des erreurs
         }
         
