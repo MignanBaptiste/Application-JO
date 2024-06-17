@@ -1,4 +1,4 @@
-package applicationJo;
+package applicationJo.vues;
 
 import javafx.application.*;
 import javafx.stage.Stage;
