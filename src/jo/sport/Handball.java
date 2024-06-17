@@ -11,5 +11,6 @@ public class Handball extends Sport{
         this.coeffForce = 4;
         this.coeffAgilite = 4;
         this.coeffEndurance = 3;
+        this.nbjoueursmaxequipe = 14;
     }
 }

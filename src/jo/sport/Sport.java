@@ -8,6 +8,7 @@ public abstract class Sport {
     protected int coeffForce; // Coefficient de force pour ce sport
     protected int coeffAgilite; // Coefficient d'agilité pour ce sport
     protected int coeffEndurance; // Coefficient d'endurance pour ce sport
+    protected int nbjoueursmaxequipe; // nombre de joueurs maximum pour ce sport
 
     /**
      * Constructeur pour initialiser un nouveau sport.
@@ -47,6 +48,14 @@ public abstract class Sport {
      */
     public int getCoeffEndurance(){
         return this.coeffEndurance;
+    }
+
+    /**
+     * Renvoie le nombre de joueurs maximum pour ce sport s'il est joué en équipe.
+     * @return Le nombre de joueurs maximum pour ce sport s'il est joué en équipe.
+     */
+    public int getNombreJoueursMaxEquipe(){
+        return this.nbjoueursmaxequipe;
     }
 
     @Override

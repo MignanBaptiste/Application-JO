@@ -1,4 +1,4 @@
-package jo;
+package applicationJo.database;
 import java.sql.*;
 
 public class ConnexionMySQL {

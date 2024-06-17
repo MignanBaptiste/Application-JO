@@ -1,5 +1,6 @@
 import jo.*;
 import jo.exception.AlreadyInException;
+import jo.exception.FilledElementException;
 import jo.exception.InvalidSexeException;
 import jo.exception.InvalidTypeException;
 import jo.exception.NothingInException;
@@ -57,7 +58,7 @@ public class TestEpreuve {
         Athlete ath1 = new Athlete("Manaudou", "Florent", Sexe.FEMME, 56, 87, 78, france);
         try {
             equipe.addAthlete(ath1);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion de l'exception
         }
         try {
@@ -81,7 +82,7 @@ public class TestEpreuve {
             equipe1.addAthlete(ath1);
             equipe1.addAthlete(ath2);
             collective.addParticipant(equipe1);
-        } catch (InvalidTypeException | InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidTypeException | InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion de l'exception
             }
         
@@ -114,7 +115,7 @@ public class TestEpreuve {
         try {
             equipe.addAthlete(ath1);
             equipe.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion de l'exception
         }
         try {
@@ -135,11 +136,11 @@ public class TestEpreuve {
         Athlete ath2 = new Athlete("Riner", "Teddy", Sexe.HOMME, 89, 67, 53, france); 
         Athlete ath3 = new Athlete("Manaudou", "Florent", Sexe.FEMME, 56, 87, 78, france); 
         Athlete ath4 = new Athlete("Riner", "Teddy", Sexe.FEMME, 89, 67, 53, france);
-        Equipe equipe = new Equipe(new VolleyBall(null), france);
+        Equipe equipe = new Equipe(new VolleyBall("Volley"), france);
         try {
             equipe.addAthlete(ath3);
             equipe.addAthlete(ath4);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion de l'exception
         }
         try {
@@ -169,7 +170,7 @@ public class TestEpreuve {
         try {
             equipe1.addAthlete(ath1);
             equipe2.addAthlete(ath2);
-        } catch (InvalidSexeException | AlreadyInException e) {
+        } catch (InvalidSexeException | AlreadyInException | FilledElementException e) {
             // gestion de l'exception
         }
         try {
