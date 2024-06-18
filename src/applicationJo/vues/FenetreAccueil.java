@@ -1,4 +1,4 @@
-package src;
+package applicationJo.vues;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,11 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Fenetre extends Application{
+public class FenetreAccueil extends Application{
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = FXMLLoader.load(getClass().getResource("FenetreAcceuil.fxml"));
+        VBox root = FXMLLoader.load(getClass().getResource("file:./src/applicationJo/vues/FenetreAccueil.fxml"));
         
         Scene scene = new Scene(root); 
         primaryStage.setTitle("Ma Fenêtre JavaFX"); // Titre de la fenêtre
