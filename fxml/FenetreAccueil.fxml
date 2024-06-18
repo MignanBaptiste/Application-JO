@@ -34,10 +34,10 @@
             <Insets bottom="50.0" top="20.0" />
          </VBox.margin>
          <image>
-            <Image url="@img/logoJO.png" />
+            <Image url="@../img/logoJO.png" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="bouton" stylesheets="@../log.css" text="Sign Up">
+      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Sign Up">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -45,7 +45,7 @@
             <Insets bottom="25.0" left="210.0" right="210.0" />
          </VBox.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="@../bouton" stylesheets="@../log.css" text="Login">
+      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Login">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
