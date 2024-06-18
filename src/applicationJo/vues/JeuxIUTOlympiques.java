@@ -22,6 +22,10 @@ public class JeuxIUTOlympiques extends Application {
         this.centre = new BorderPane();
     }
 
+    public void afficheFenetreAccueil() throws Exception{
+        this.centre.setCenter(new FenetreAccueil());
+    }
+
     private Pane fenetreLogin(){
         Pane res = new Pane();
         return res;
@@ -37,7 +41,7 @@ public class JeuxIUTOlympiques extends Application {
         haut.setPadding(new Insets(20,10,20,10));
 
         this.boutonHome = new Button();
-        ImageView imageMaison = new ImageView("file:home.png");
+        ImageView imageMaison = new ImageView("home.png");
         imageMaison.setFitHeight(20);
         imageMaison.setFitWidth(20);
         this.boutonHome.setGraphic(imageMaison);
@@ -49,19 +53,15 @@ public class JeuxIUTOlympiques extends Application {
         return haut;
     }
 
-    private Scene laScene(){
-        BorderPane fenetre = new BorderPane();
-        fenetre.setTop(this.header());
-        this.centre.setPadding(new Insets(15));
-        fenetre.setCenter(this.centre);
-        return new Scene(fenetre, 800, 1000);
+    private Scene laScene() throws Exception{
+        BorderPane fenetre = new FenetreAccueil();
+        return new Scene(fenetre);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Paris 2024");
         stage.setScene(this.laScene());
-        this.modeLogin();
         stage.show();
     }
 

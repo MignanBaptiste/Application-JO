@@ -3,22 +3,19 @@ package applicationJo.vues;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class FenetreAccueil extends Application{
-    
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        VBox root = FXMLLoader.load(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+public class FenetreAccueil extends BorderPane{
 
-        Scene scene = new Scene(root); 
-        primaryStage.setTitle("Ma Fenêtre JavaFX"); // Titre de la fenêtre
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+    public FenetreAccueil() throws Exception {
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("../../../fxml/FenetreAccueil.fxml")));
+        this.setCenter(loader.load());
+        Button bConnexion = (Button) root
 
-    public static void main(String[] args) {
-        launch(args);
+        //lookUp : faire apres le show()
     }
 }

@@ -5,53 +5,63 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox alignment="CENTER" prefHeight="125.0" prefWidth="200.0" style="-fx-background-color: #000000;">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label ellipsisString="" style="-fx-font-style: Inter;" text="Jeux Olympiques 2024" textFill="WHITE" textOverrun="CLIP">
+            <ImageView fitHeight="300.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="25.0" top="30.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../img/logoJO.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="S'inscrire" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-               <HBox.margin>
-                  <Insets left="40.0" right="40.0" top="30.0" />
-               </HBox.margin>
-            </Label>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Se connecter" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="30.0" />
-         </padding>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Jeux Olympiques 2024" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" style="-fx-background-radius: 50%; -fx-background-radius: 50%; -fx-max-height: 50px; -fx-max-width: 50px; -fx-min-height: 50px; -fx-min-width: 50px; -fx-background-color: white;" styleClass="bouton" stylesheets="@style.css">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
       </HBox>
-      <ImageView fitHeight="310.0" fitWidth="335.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-         <VBox.margin>
-            <Insets bottom="50.0" top="20.0" />
-         </VBox.margin>
-         <image>
-            <Image url="@../img/logoJO.png" />
-         </image>
-      </ImageView>
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Sign Up">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="25.0" left="210.0" right="210.0" />
-         </VBox.margin>
-      </Button>
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Login">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </Button>
-   </children>
-</VBox>
+   </top>
+</BorderPane>
