@@ -12,7 +12,7 @@ public class FenetreAccueil extends Application{
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = FXMLLoader.load(getClass().getResource("file:./src/applicationJo/vues/FenetreAccueil.fxml"));
+        VBox root = FXMLLoader.load(getClass().getResource("fxml/FenetreAccueil.fxml"));
         
         Scene scene = new Scene(root); 
         primaryStage.setTitle("Ma Fenêtre JavaFX"); // Titre de la fenêtre
