@@ -13,4 +13,8 @@ public class Natation extends Sport{
         this.coeffEndurance = 5;
         nbjoueursmaxequipe = 4;
     }
+    @Override
+    public String getSport(){
+        return "Natation";
+    }
 }
