@@ -1,0 +1,8 @@
+.bouton:hover {
+    
+    -fx-background-color: #d1c177; /* Couleur de survol */
+}
+
+.police {
+    -fx-font-family: 'Inter';
+}
