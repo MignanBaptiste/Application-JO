@@ -19,7 +19,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="471.0" prefWidth="288.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Nom">
+                        <TextField maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Nom">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
@@ -27,15 +27,7 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Prénom">
-                           <VBox.margin>
-                              <Insets bottom="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Âge">
+                        <TextField maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Prénom">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
@@ -58,7 +50,7 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="314.0" prefWidth="500.0">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Enregistrer" textFill="WHITE">
+                  <Button maxHeight="40.0" maxWidth="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Connexion" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
