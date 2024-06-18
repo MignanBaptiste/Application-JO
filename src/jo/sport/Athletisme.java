@@ -13,4 +13,8 @@ public class Athletisme extends Sport{
         this.coeffEndurance = 3;
         this.nbjoueursmaxequipe = 4;
     }
+    @Override
+    public String getSport(){
+        return "Athletisme";
+    }
 }
