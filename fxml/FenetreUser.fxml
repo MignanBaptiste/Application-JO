@@ -35,7 +35,7 @@
                         </Button>
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Organisateur" textFill="WHITE">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets />
