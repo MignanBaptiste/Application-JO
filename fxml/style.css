@@ -1,10 +1,20 @@
 .bouton:hover {
     
     -fx-background-color: #d1c177; /* Couleur de survol */
-    -fx-text-fill: black;}
+    -fx-text-fill: black;
+}
 
 .bouton {
     -fx-background-color: #000000
+}
+
+.headerBouton {
+    -fx-background-color: #ffffff
+}
+
+.headerBouton:hover {
+    
+    -fx-background-color: #d1c177; /* Couleur de survol */
 }
 
 .police {
