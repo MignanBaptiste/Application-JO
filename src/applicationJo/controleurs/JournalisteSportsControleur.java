@@ -58,6 +58,96 @@ public class JournalisteSportsControleur {
         }
     }
 
+    @FXML
+    private void handleEscrime(ActionEvent event) { //chemin par défault
+        try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteEscrime.fxml"));
+                Parent root = loader.load();
+
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    private void handleAthletisme(ActionEvent event) { //chemin par défault
+        try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteAth.fxml"));
+                Parent root = loader.load();
+
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    private void handleHandball(ActionEvent event) { //chemin par défault
+        try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteHandball.fxml"));
+                Parent root = loader.load();
+
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    private void handleNatation(ActionEvent event) { //chemin par défault
+        try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteNatation.fxml"));
+                Parent root = loader.load();
+
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    private void handleVolleyBall(ActionEvent event) { //chemin par défault
+        try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteVolleyBall.fxml"));
+                Parent root = loader.load();
+
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
     
     
 }
