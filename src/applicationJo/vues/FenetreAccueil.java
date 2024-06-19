@@ -1,21 +1,40 @@
 package applicationJo.vues;
 
-import javafx.application.Application;
+import applicationJo.controleurs.AccueilControleur;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class FenetreAccueil extends BorderPane{
 
-    public FenetreAccueil() throws Exception {
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("../../../fxml/FenetreAccueil.fxml")));
-        this.setCenter(loader.load());
-        Button bConnexion = (Button) root
+    private JeuxIUTOlympiques appli;
 
-        //lookUp : faire apres le show()
+    public FenetreAccueil(JeuxIUTOlympiques appli) throws Exception {
+        this.appli = appli;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+        this.setCenter(loader.load());
+        Button bConnexion = (Button) this.lookup("#btnConnexion");
+        bConnexion.setOnAction(new AccueilControleur(this.appli));
+    }
+
+    public FenetreAccueil afficheFenetreAccueil() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+        this.setCenter(loader.load());
+        Button bConnexion = (Button) this.lookup("#btnConnexion");
+        bConnexion.setOnAction(new AccueilControleur(this.appli));
+        return this;
+    }
+
+    public FenetreAccueil afficheFenetreSinscrire() throws Exception {
+        this.appli.afficheFenetreConnexion();
+        return this;
+    }
+
+    public FenetreAccueil afficheFenetreConnexion() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreConnexion.fxml"));
+        this.setCenter(loader.load());
+        Button bConnexion = (Button) this.lookup("#btnConnexion");
+        bConnexion.setOnAction(new AccueilControleur(this.appli));
+        return this;
     }
 }

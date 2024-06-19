@@ -22,7 +22,7 @@
                   <Image url="@../img/logoJO.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="S'inscrire" textFill="WHITE">
+            <Button fx:id="btnSinscrire" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="S'inscrire" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Se connecter" textFill="WHITE">
+            <Button fx:id="btnConnexion" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Se connecter" textFill="WHITE">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>

@@ -1,67 +1,67 @@
 package applicationJo.vues;
 
+import java.io.IOException;
+
+import applicationJo.controleurs.AccueilControleur;
 import javafx.application.*;
-import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
 public class JeuxIUTOlympiques extends Application {
 
-    private Button boutonHome;
-
+    private Scene scene;
     private BorderPane centre;
+    private FenetreAccueil fenetreAccueil;
 
     @Override
     public void init() throws Exception {
         this.centre = new BorderPane();
+        this.scene = new Scene(this.centre);
+        this.fenetreAccueil = new FenetreAccueil(this);
     }
 
-    public void afficheFenetreAccueil() throws Exception{
-        this.centre.setCenter(new FenetreAccueil());
+    // public void creationDuLoader() {
+    //     this.loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+    // }
+
+    // public void creationControleur() throws Exception {
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+    //     this.scene = new Scene(loader.load());
+
+    //     System.out.println("creation bouton");
+    //     Button bConnexion = (Button) this.scene.lookup("#btnConnexion");
+
+    //     if (bConnexion != null) {
+    //         bConnexion.setOnAction(new AccueilControleur(this));
+    //         System.out.println("bouton créé");
+    //     } else {
+    //         System.out.println("aegnip");
+    //     }
+    // }
+
+    public void afficheHello() {
+        System.out.println("hello");
     }
 
-    private Pane fenetreLogin(){
-        Pane res = new Pane();
-        return res;
+    public void afficheFenetreAccueil() throws Exception {
+        this.centre.setCenter(new FenetreAccueil(this));
     }
 
-    private void modeLogin() {
-        this.centre.setCenter(fenetreLogin());
-    }
-
-    private HBox header() {
-        HBox haut = new HBox();
-        haut.setStyle("-fx-background-color: #000000;");
-        haut.setPadding(new Insets(20,10,20,10));
-
-        this.boutonHome = new Button();
-        ImageView imageMaison = new ImageView("home.png");
-        imageMaison.setFitHeight(20);
-        imageMaison.setFitWidth(20);
-        this.boutonHome.setGraphic(imageMaison);
-
-        Label titre = new Label("Jeux Olympiques 2024");
-        titre.setPadding(new Insets(10));
-        
-        haut.getChildren().addAll(titre, this.boutonHome);
-        return haut;
-    }
-
-    private Scene laScene() throws Exception{
-        BorderPane fenetre = new FenetreAccueil();
-        return new Scene(fenetre);
+    public void afficheFenetreConnexion() throws Exception {
+        FenetreAccueil fenetreAccueil = new FenetreAccueil(this);
+        this.centre.setCenter(fenetreAccueil.afficheFenetreConnexion());
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Paris 2024");
-        stage.setScene(this.laScene());
+        this.afficheFenetreAccueil();
+        stage.setScene(this.scene);
         stage.show();
     }
 
