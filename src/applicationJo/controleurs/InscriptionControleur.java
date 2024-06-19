@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class InscriptionControleur {
@@ -24,6 +26,20 @@ public class InscriptionControleur {
     private TextField age;
     @FXML
     private PasswordField mdp;
+
+    @FXML
+    private void initialize() {
+        nom.setOnKeyPressed(this::handleEnterKey);
+        prenom.setOnKeyPressed(this::handleEnterKey);
+        age.setOnKeyPressed(this::handleEnterKey);
+        mdp.setOnKeyPressed(this::handleEnterKey);
+    }
+
+    private void handleEnterKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            handleEnregistrer();
+        }
+    }
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
