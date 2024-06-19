@@ -12,4 +12,9 @@ public class VolleyBall extends Sport{
         this.coeffEndurance = 2;
         this.nbjoueursmaxequipe = 12;
     }
+
+    @Override
+    public String getSport(){
+        return "Volley-Ball";
+    }
 }

@@ -13,4 +13,8 @@ public class Handball extends Sport{
         this.coeffEndurance = 3;
         this.nbjoueursmaxequipe = 14;
     }
+    @Override
+    public String getSport(){
+        return "Handball";
+    }
 }

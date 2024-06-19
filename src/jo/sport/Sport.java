@@ -99,6 +99,12 @@ public abstract class Sport {
                 '}';
     }
 
+    /**
+     * Renvoie le nom du sport
+     * @return le nom du sport
+     */
+    public abstract String getSport();
+
 }
 
 
