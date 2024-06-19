@@ -12,4 +12,8 @@ public class Escrime extends Sport{
         this.coeffAgilite = 5;
         this.coeffEndurance = 3;
     }
+    @Override
+    public String getSport(){
+        return "Escrime";
+    }
 }
