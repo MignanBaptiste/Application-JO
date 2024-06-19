@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationJo.controleurs.ConnexionControleur">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="471.0" prefWidth="288.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Nom">
+                        <TextField fx:id="nom" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Nom">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
@@ -28,7 +28,7 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Prénom">
+                        <TextField fx:id="prenom" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Prénom">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
@@ -36,7 +36,7 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Mot de passe" />
+                        <PasswordField fx:id="mdp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Mot de passe" />
                      </children>
                   </VBox>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -51,7 +51,7 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="314.0" prefWidth="500.0">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Connexion" textFill="WHITE">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Connexion" textFill="WHITE" onAction="#handleConnecter">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -72,7 +72,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css">
+            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css" onAction="#handleHomeButton">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
