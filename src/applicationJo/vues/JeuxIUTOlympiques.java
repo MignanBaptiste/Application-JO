@@ -22,7 +22,7 @@ public class JeuxIUTOlympiques extends Application {
     public void init() throws Exception {
         this.centre = new BorderPane();
         this.scene = new Scene(this.centre);
-        this.fenetreAccueil = new FenetreAccueil(this);
+        this.fenetreAccueil = new FenetreAccueil(this, new AccueilControleur(this));
     }
 
     // public void creationDuLoader() {
@@ -49,11 +49,11 @@ public class JeuxIUTOlympiques extends Application {
     }
 
     public void afficheFenetreAccueil() throws Exception {
-        this.centre.setCenter(new FenetreAccueil(this));
+        this.centre.setCenter(new FenetreAccueil(this, new AccueilControleur(this)));
     }
 
     public void afficheFenetreConnexion() throws Exception {
-        FenetreAccueil fenetreAccueil = new FenetreAccueil(this);
+        FenetreAccueil fenetreAccueil = new FenetreAccueil(this, new AccueilControleur(this));
         this.centre.setCenter(fenetreAccueil.afficheFenetreConnexion());
     }
 

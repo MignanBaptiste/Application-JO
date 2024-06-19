@@ -8,9 +8,11 @@ import javafx.scene.layout.BorderPane;
 public class FenetreAccueil extends BorderPane{
 
     private JeuxIUTOlympiques appli;
+    private AccueilControleur controleur;
 
-    public FenetreAccueil(JeuxIUTOlympiques appli) throws Exception {
+    public FenetreAccueil(JeuxIUTOlympiques appli, AccueilControleur controleur) throws Exception {
         this.appli = appli;
+        this.controleur = controleur;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
         this.setCenter(loader.load());
         Button bConnexion = (Button) this.lookup("#btnConnexion");
@@ -21,7 +23,7 @@ public class FenetreAccueil extends BorderPane{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
         this.setCenter(loader.load());
         Button bConnexion = (Button) this.lookup("#btnConnexion");
-        bConnexion.setOnAction(new AccueilControleur(this.appli));
+        bConnexion.setOnAction(this.controleur);
         return this;
     }
 
@@ -34,7 +36,7 @@ public class FenetreAccueil extends BorderPane{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreConnexion.fxml"));
         this.setCenter(loader.load());
         Button bConnexion = (Button) this.lookup("#btnConnexion");
-        bConnexion.setOnAction(new AccueilControleur(this.appli));
+        bConnexion.setOnAction(this.controleur);
         return this;
     }
 }
