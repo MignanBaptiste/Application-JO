@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationJo.controleurs.AccueilControleur">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                   <Image url="@../img/logoJO.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="S'inscrire" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="S'inscrire" onAction="#handleSeConnecterButton" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Se connecter" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Se connecter" onAction="#handleSinscrireButton" textFill="WHITE">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
