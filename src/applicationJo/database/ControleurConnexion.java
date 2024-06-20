@@ -14,6 +14,6 @@ public class ControleurConnexion implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         // En attente d'avoir une fonction pour récupérer des champs de la page de connexion à la JDBC
-        // this.modele.connecter(null, null, null, null);
+        // this.modele.connecter(this.vue.getLogin(), this.vue.getPassword());
     }
 }

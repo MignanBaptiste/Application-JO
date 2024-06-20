@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 import java.util.List;
 
-
+import applicationJo.database.ConnexionMySQL;
 import jo.exception.*;
 import jo.sport.*;
 
@@ -344,7 +344,9 @@ public class JeuxOlympiques {
     }
 
     // Besoin d'une méthode pour faire la simulation des épreuves.
-
+    /**
+     * Permet de faire la simulation des épreuves, utiliser dans la version avec l'executable
+     */
     public void simulation(){
         this.resetClassement();
         for (@SuppressWarnings("rawtypes") Epreuve epv: this.lesEpreuves){
@@ -363,18 +365,28 @@ public class JeuxOlympiques {
         }
     }
 
+    /**
+     * Permet réinitialiser les médailles de chaque pays, permet d'éviter qu'un épreuve soit compter plusieurs fois
+     */
     public void resetClassement(){
         for (Pays pays: this.getPays()){
             pays.resetClassement();
         }
     }
 
-    // On ne s'en occupe pas pour le moment.
-    // public void load_database(){
-    //     
-    // }
+    /**
+     * Permet de charger une base de donnée dans les données dynamiques (JeuxOlympiques)
+     * @param connexion Permet une connexion à la base de données
+     */
+    public void load_database(ConnexionMySQL connexion){
+        // Récupère les données
+    }
 
-    // public void save_database(){
+    /**
+     * Permet d'enregistrer les données dynamiques dans la base de données
+     * @param connexion Permet une connexion à la base de données
+     */
+    public void save_database(ConnexionMySQL connexion){
 
-    // }
+    }
 }
