@@ -3,6 +3,7 @@ package applicationJo.controleurs;
 import java.io.IOException;
 import java.util.Optional;
 
+import applicationJo.database.ConnexionMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import jo.*;
 
 public class ConnexionControleur {
 
@@ -24,6 +26,17 @@ public class ConnexionControleur {
     private TextField prenom;
     @FXML
     private PasswordField mdp;
+
+    private ConnexionMySQL connexionMySQL;
+    private JeuxOlympiques jeuxOlympiques;
+
+    public void setConnexionMySQL(ConnexionMySQL connexionMySQL) {
+        this.connexionMySQL = connexionMySQL;
+    }
+
+    public void setJO(JeuxOlympiques jeuxOlympiques){
+        this.jeuxOlympiques = jeuxOlympiques;
+    }
 
     @FXML
     private void initialize() {
@@ -55,6 +68,9 @@ public class ConnexionControleur {
                 // Charger la vue d'accueil
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreUser.fxml"));
                 Parent root = loader.load();
+                UserControleur controleur = loader.getController();
+                controleur.setConnexionMySQL(connexionMySQL);
+                controleur.setJO(jeuxOlympiques);
 
                 // Changer la scène actuelle
                 Stage stage = (Stage) this.nom.getScene().getWindow();
@@ -81,6 +97,9 @@ public class ConnexionControleur {
                 // Charger la vue d'accueil
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
                 Parent root = loader.load();
+                AccueilControleur controleur = loader.getController();
+                controleur.setConnexionMySQL(connexionMySQL);
+                controleur.setJO(jeuxOlympiques);
 
                 // Changer la scène actuelle
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -100,6 +119,9 @@ public class ConnexionControleur {
             // Charger la vue d'accueil
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
             Parent root = loader.load();
+            AccueilControleur controleur = loader.getController();
+            controleur.setConnexionMySQL(connexionMySQL);
+            controleur.setJO(jeuxOlympiques);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
