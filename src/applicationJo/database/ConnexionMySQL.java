@@ -2,13 +2,16 @@ package applicationJo.database;
 import java.sql.*;
 
 public class ConnexionMySQL {
+
 	private Connection mysql;
 	private boolean connecte;
+
 	public ConnexionMySQL() throws ClassNotFoundException{
 		Class.forName("org.mariadb.jdbc.Driver");
 		this.mysql = null;
 		this.connecte = false;
 	}
+
 	public void connecter(String nomServeur, String nomBase, String nomLogin, String motDePasse) throws SQLException {
 		this.mysql = DriverManager.getConnection("jdbc:mysql://"+nomServeur+":3306/"+nomBase,nomLogin,motDePasse);
 		this.connecte = true;

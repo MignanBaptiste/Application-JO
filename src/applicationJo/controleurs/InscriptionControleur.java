@@ -3,6 +3,7 @@ package applicationJo.controleurs;
 import java.io.IOException;
 import java.util.Optional;
 
+import applicationJo.database.ConnexionMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +16,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import jo.*;
 
 public class InscriptionControleur {
+
+    private ConnexionMySQL connexionMySQL;
 
     @FXML
     private TextField nom;
@@ -26,6 +30,15 @@ public class InscriptionControleur {
     private PasswordField mdp;
     @FXML
     private PasswordField mdp2;
+    private JeuxOlympiques jeuxOlympiques;
+
+    public void setConnexionMySQL(ConnexionMySQL connexionMySQL) {
+        this.connexionMySQL = connexionMySQL;
+    }
+
+    public void setJO(JeuxOlympiques jeuxOlympiques){
+        this.jeuxOlympiques = jeuxOlympiques;
+    }
 
     @FXML
     private void initialize() {
@@ -54,6 +67,9 @@ public class InscriptionControleur {
                 // Charger la vue d'accueil
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
                 Parent root = loader.load();
+                AccueilControleur controleur = loader.getController();
+                controleur.setConnexionMySQL(connexionMySQL);
+                controleur.setJO(jeuxOlympiques);
 
                 // Changer la scène actuelle
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -73,6 +89,9 @@ public class InscriptionControleur {
             // Charger la vue d'accueil
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
             Parent root = loader.load();
+            AccueilControleur controleur = loader.getController();
+            controleur.setConnexionMySQL(connexionMySQL);
+            controleur.setJO(jeuxOlympiques);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -112,6 +131,11 @@ public class InscriptionControleur {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
                     Parent root = loader.load();
+                    AccueilControleur controleur = loader.getController();
+                    controleur.setConnexionMySQL(connexionMySQL);
+                    controleur.setJO(jeuxOlympiques);
+
+
                     Stage stage = (Stage) this.nom.getScene().getWindow();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);

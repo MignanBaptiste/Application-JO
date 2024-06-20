@@ -3,6 +3,7 @@ package applicationJo.controleurs;
 import java.io.IOException;
 import java.util.Optional;
 
+import applicationJo.database.ConnexionMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import jo.*;
 
 public class JournalisteAthControleur {
+
+    private ConnexionMySQL connexionMySQL;
+    private JeuxOlympiques jeuxOlympiques;
+
+    public void setConnexionMySQL(ConnexionMySQL connexionMySQL) {
+        this.connexionMySQL = connexionMySQL;
+    }
+
+    public void setJO(JeuxOlympiques jeuxOlympiques){
+        this.jeuxOlympiques = jeuxOlympiques;
+    }
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
@@ -27,6 +40,9 @@ public class JournalisteAthControleur {
                 // Charger la vue d'accueil
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
                 Parent root = loader.load();
+                AccueilControleur controleur = loader.getController();
+                controleur.setConnexionMySQL(connexionMySQL);
+                controleur.setJO(jeuxOlympiques);
 
                 // Changer la scène actuelle
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -46,6 +62,9 @@ public class JournalisteAthControleur {
             // Charger la vue d'accueil
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSport.fxml"));
             Parent root = loader.load();
+            JournalisteSportsControleur controleur = loader.getController();
+            controleur.setConnexionMySQL(connexionMySQL);
+            controleur.setJO(jeuxOlympiques);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -67,6 +86,8 @@ public class JournalisteAthControleur {
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
             journalisteSexeControleur.setSourceInfo("Athlétisme", "Athlétisme 110 haies");
+            journalisteSexeControleur.setConnexionMySQL(connexionMySQL);
+            journalisteSexeControleur.setJO(jeuxOlympiques);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -88,6 +109,8 @@ public class JournalisteAthControleur {
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
             journalisteSexeControleur.setSourceInfo("Athlétisme", "Athlétisme relais 400m");
+            journalisteSexeControleur.setConnexionMySQL(connexionMySQL);
+            journalisteSexeControleur.setJO(jeuxOlympiques);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
