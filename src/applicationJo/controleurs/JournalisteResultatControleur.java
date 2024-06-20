@@ -10,9 +10,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class JournalisteEscrimeControleur {
+public class JournalisteResultatControleur {
+
+    @FXML
+    private Label infoLabel;
+    @FXML
+    private Label infoLabel2;
+    @FXML
+    private Label infoLabel3;
+
+    // Méthode pour recevoir les informations de la première page
+    public void setSourceInfo(String info, String info2, String info3) {
+        infoLabel.setText(info);
+        infoLabel2.setText(info2);
+        infoLabel3.setText(info3);
+    }
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
@@ -59,46 +74,10 @@ public class JournalisteEscrimeControleur {
     }
 
     @FXML
-    private void handleFleuret(ActionEvent event){
-        try {
-            // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
-            Parent root = loader.load();
-
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime fleuret");
-
-            // Changer la scène actuelle
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void handleResultats(){
+        
     }
 
-    @FXML
-    private void handleEpee(ActionEvent event){
-        try {
-            // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
-            Parent root = loader.load();
-
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime épée");
-
-            // Changer la scène actuelle
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+    
     
 }

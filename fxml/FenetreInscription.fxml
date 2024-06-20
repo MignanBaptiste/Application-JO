@@ -16,6 +16,14 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Retour" textFill="WHITE" onAction="#handleRetourButton">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="60.0" top="20.0" />
+               </VBox.margin>
+            </Button>
             <HBox alignment="CENTER_LEFT" prefHeight="574.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
                <children>
                   <VBox alignment="CENTER" prefHeight="471.0" prefWidth="288.0" HBox.hgrow="ALWAYS">
@@ -36,15 +44,11 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="age" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Âge">
+                        <PasswordField fx:id="mdp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Mot de passe">
                            <VBox.margin>
                               <Insets bottom="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <PasswordField fx:id="mdp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Mot de passe" />
+                           </VBox.margin></PasswordField>
+                        <PasswordField fx:id="mdp2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" promptText="Valider mot de passe" />
                      </children>
                   </VBox>
                   <ImageView fitHeight="200.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
@@ -59,7 +63,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="314.0" prefWidth="500.0">
                <children>
-                  <Button fx:id="btnEnregistrer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Enregistrer" textFill="WHITE" onAction="#handleEnregistrer">
+                  <Button fx:id="btnEnregistrer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEnregistrer" prefHeight="40.0" prefWidth="150.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Enregistrer" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -80,7 +84,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css" onAction="#handleHomeButton">
+            <Button mnemonicParsing="false" onAction="#handleHomeButton" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>

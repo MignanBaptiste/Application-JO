@@ -17,6 +17,11 @@
     -fx-background-color: #d1c177; /* Couleur de survol */
 }
 
-.police {
-    -fx-font-family: 'Inter';
+.imgFond {
+    -fx-background-image: url("../img/img_fond_appli.png");
+    -fx-background-size: cover; /* Pour couvrir toute la zone */
+    -fx-background-position: center top; /* Pour centrer l'image */
+    -fx-background-repeat: no-repeat; /* Pour éviter la répétition de l'image */
+    -fx-opacity: 0.85;
+
 }

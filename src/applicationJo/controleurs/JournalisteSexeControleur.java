@@ -17,10 +17,13 @@ public class JournalisteSexeControleur {
 
     @FXML
     private Label infoLabel;
+    @FXML
+    private Label infoLabel2;
 
     // Méthode pour recevoir les informations de la première page
-    public void setSourceInfo(String info) {
+    public void setSourceInfo(String info, String info2) {
         infoLabel.setText(info);
+        infoLabel2.setText(info2);
     }
 
     @FXML
@@ -71,11 +74,11 @@ public class JournalisteSexeControleur {
     private void handleHomme(ActionEvent event){
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteResultat.fxml"));
             Parent root = loader.load();
 
-            // TODO JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            // TODO journalisteSexeControleur.setSourceInfo("110 mètres haies");
+            JournalisteResultatControleur journalisteResultatControleur = loader.getController();
+            journalisteResultatControleur.setSourceInfo(infoLabel.getText(), infoLabel2.getText(), "H");
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -92,12 +95,12 @@ public class JournalisteSexeControleur {
     private void handleFemme(ActionEvent event){
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteResultat.fxml"));
             Parent root = loader.load();
 
-            //TODO JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            //TODO journalisteSexeControleur.setSourceInfo("4*100 mètres relais");
-
+            JournalisteResultatControleur journalisteResultatControleur = loader.getController();
+            journalisteResultatControleur.setSourceInfo(infoLabel.getText(), infoLabel2.getText(), "F");
+            
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
