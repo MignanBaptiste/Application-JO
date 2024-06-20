@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2100.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="102.0" prefWidth="500.0">
+               <children>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Retour" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" right="300.0" top="20.0" />
+                     </VBox.margin>
+                     <stylesheets>
+                        <URL value="@style.css" />
+                        <URL value="@../Application-JO/fxml/style.css" />
+                     </stylesheets>
+                  </Button>
+                  <Label text="Modifier les donnés">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Choisissez une base de données">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="225.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Choisir un fichier CSV" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Créer un Athlèthe">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Nom">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Prénom">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Sexe">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Pays">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Sport">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Epreuve">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Force">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Agilité">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" promptText="Endurence">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Valider" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Créer une équipe">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="180.0" promptText="Nom">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ComboBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="150.0" promptText="Choisir un Pays" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets left="35.0" top="25.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Valider" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Ajouter un athlète à une équipe">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="180.0" promptText="Choisir un Athlète" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets left="35.0" top="20.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <ComboBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="180.0" promptText="Choisir une équipe" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets left="35.0" top="25.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Valider" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Ajouter des points">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="280.0" promptText="Choisir une equipe ou un athlète" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="180.0" promptText="Score à ajouter">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Valider" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Label text="Enlever des points">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="280.0" promptText="Choisir une equipe ou un athlete" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="180.0" promptText="Score à enlever">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Valider" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../Application-JO/fxml/style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="125.0" prefWidth="200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+         <children>
+         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="473.0">
+               <children>
+                  <Label text="Jeux Olympiques 2024" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Administrateur" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <ScrollBar orientation="VERTICAL" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

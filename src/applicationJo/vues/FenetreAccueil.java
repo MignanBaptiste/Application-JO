@@ -1,6 +1,6 @@
 package applicationJo.vues;
 
-import applicationJo.controleurs.AccueilControleur;
+import applicationJo.controleurs.ContAccueil;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -8,35 +8,28 @@ import javafx.scene.layout.BorderPane;
 public class FenetreAccueil extends BorderPane{
 
     private JeuxIUTOlympiques appli;
-    private AccueilControleur controleur;
 
-    public FenetreAccueil(JeuxIUTOlympiques appli, AccueilControleur controleur) throws Exception {
+    public FenetreAccueil(JeuxIUTOlympiques appli) throws Exception {
         this.appli = appli;
-        this.controleur = controleur;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
         this.setCenter(loader.load());
+        Button bHome = (Button) this.lookup("#btnHome");
+        bHome.setOnAction(new ContAccueil(this));
+        Button bSinscrire = (Button) this.lookup("#btnSinscrire");
+        bSinscrire.setOnAction(new ContAccueil(this));
         Button bConnexion = (Button) this.lookup("#btnConnexion");
-        bConnexion.setOnAction(new AccueilControleur(this.appli));
+        bConnexion.setOnAction(new ContAccueil(this));
     }
 
-    public FenetreAccueil afficheFenetreAccueil() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
-        this.setCenter(loader.load());
-        Button bConnexion = (Button) this.lookup("#btnConnexion");
-        bConnexion.setOnAction(this.controleur);
-        return this;
-    }
-
-    public FenetreAccueil afficheFenetreSinscrire() throws Exception {
+    public void afficheFenetreConnexion() throws Exception {
         this.appli.afficheFenetreConnexion();
-        return this;
     }
 
-    public FenetreAccueil afficheFenetreConnexion() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreConnexion.fxml"));
-        this.setCenter(loader.load());
-        Button bConnexion = (Button) this.lookup("#btnConnexion");
-        bConnexion.setOnAction(this.controleur);
-        return this;
+    public void afficheFenetreInscription() throws Exception {
+        this.appli.afficheFenetreInscription();
+    }
+
+    public void hello() {
+        System.out.println("aaze");
     }
 }
