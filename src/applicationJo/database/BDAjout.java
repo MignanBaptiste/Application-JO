@@ -2,11 +2,13 @@ package applicationJo.database;
 
 import java.sql.*;
 import java.util.HashMap;
-import java.util.Map;
 
 import jo.*;
 import jo.sport.*;
 
+/**
+ * Permet d'ajouter des données à la base de données
+ */
 public class BDAjout {
     private ConnexionMySQL connexion;
     private Statement st; 
@@ -239,7 +241,10 @@ public class BDAjout {
         }
     }
 
-    // Ajouter les scores
+    /**
+     * Permet de simuler une épreuve et ajoute les scores
+     * @param epreuve L'épreuve à simuler
+     */
     public void simulation(Epreuve epreuve){
         try {
             PreparedStatement ps;
