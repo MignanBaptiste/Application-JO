@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationJo.controleurs.OrganisateurResultatControleur">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="101.0" prefWidth="500.0">
                <children>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Retour" textFill="WHITE">
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Retour" textFill="WHITE" onAction="#handleRetourButton">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -36,7 +36,7 @@
                </children>
             </VBox>
             <Pane prefHeight="205.0" prefWidth="500.0" />
-            <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Enregistrer les résultats" textFill="WHITE">
+            <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 30;" styleClass="bouton" stylesheets="@style.css" text="Enregistrer les résultats" textFill="WHITE" onAction="#handleEnregistrer">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -64,7 +64,7 @@
                   </Label>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css">
+            <Button mnemonicParsing="false" style="-fx-min-height: 50px; -fx-min-width: 50px; -fx-background-radius: 50%; -fx-border-radius: 50%;" styleClass="headerBouton" stylesheets="@style.css" onAction="#handleHomeButton">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>
