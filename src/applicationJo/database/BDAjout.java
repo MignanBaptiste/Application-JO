@@ -182,6 +182,7 @@ public class BDAjout {
                     ps.executeUpdate();
                 }
             }
+            rs.close();
             ps = connexion.prepareStatement("UPDATE ATHLETE SET nomSport = ? WHERE nomAthlete = ? and prenomAthlete = ?");
             ps.setString(1, equipe.getSport().getSport());
             ps.setString(2, athlete.getNom());
