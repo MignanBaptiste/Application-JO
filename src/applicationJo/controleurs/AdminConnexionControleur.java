@@ -10,9 +10,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class JournalisteEscrimeControleur {
+public class AdminConnexionControleur {
+
+    @FXML
+    private TextField nom;
+    @FXML
+    private PasswordField mdp;
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
@@ -44,7 +51,7 @@ public class JournalisteEscrimeControleur {
     private void handleRetourButton(ActionEvent event) {
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSport.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreUser.fxml"));
             Parent root = loader.load();
 
             // Changer la scène actuelle
@@ -59,46 +66,19 @@ public class JournalisteEscrimeControleur {
     }
 
     @FXML
-    private void handleFleuret(ActionEvent event){
+    private void handleConnecter(ActionEvent event) {
         try {
-            // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAdminModif.fxml"));
             Parent root = loader.load();
-
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime fleuret");
-
-            // Changer la scène actuelle
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) this.nom.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML
-    private void handleEpee(ActionEvent event){
-        try {
-            // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
-            Parent root = loader.load();
 
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime épée");
-
-            // Changer la scène actuelle
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
     
 }

@@ -80,7 +80,7 @@ public class UserControleur {
     private void handleAdmin(ActionEvent event) { //chemin par défault
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAdminConnexion.fxml"));
             Parent root = loader.load();
 
             // Changer la scène actuelle
@@ -98,7 +98,7 @@ public class UserControleur {
     private void handleOrga(ActionEvent event) { //chemin par défault
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreOrganisateurLancerEprv.fxml"));
             Parent root = loader.load();
 
             // Changer la scène actuelle

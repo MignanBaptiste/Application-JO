@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-public class JournalisteEscrimeControleur {
+public class JournalisteNatationControleur {
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
@@ -59,14 +59,14 @@ public class JournalisteEscrimeControleur {
     }
 
     @FXML
-    private void handleFleuret(ActionEvent event){
+    private void handleBrasse(ActionEvent event){
         try {
             // Charger la vue d'accueil
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime fleuret");
+            journalisteSexeControleur.setSourceInfo("Natation", "Natation 100 brasse");
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -80,14 +80,14 @@ public class JournalisteEscrimeControleur {
     }
 
     @FXML
-    private void handleEpee(ActionEvent event){
+    private void handleRelais(ActionEvent event){
         try {
             // Charger la vue d'accueil
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Escrime", "Escrime épée");
+            journalisteSexeControleur.setSourceInfo("Natation", "Natation relais libre");
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

@@ -62,11 +62,11 @@ public class JournalisteAthControleur {
     private void handleHaie(ActionEvent event){
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("110 mètres haies");
+            journalisteSexeControleur.setSourceInfo("Athlétisme", "Athlétisme 110 haies");
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -83,11 +83,11 @@ public class JournalisteAthControleur {
     private void handleRelais(ActionEvent event){
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAccueil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
             JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("4*100 mètres relais");
+            journalisteSexeControleur.setSourceInfo("Athlétisme", "Athlétisme relais 400m");
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

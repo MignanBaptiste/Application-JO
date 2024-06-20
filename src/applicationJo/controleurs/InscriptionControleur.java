@@ -23,16 +23,16 @@ public class InscriptionControleur {
     @FXML
     private TextField prenom;
     @FXML
-    private TextField age;
-    @FXML
     private PasswordField mdp;
+    @FXML
+    private PasswordField mdp2;
 
     @FXML
     private void initialize() {
         nom.setOnKeyPressed(this::handleEnterKey);
         prenom.setOnKeyPressed(this::handleEnterKey);
-        age.setOnKeyPressed(this::handleEnterKey);
         mdp.setOnKeyPressed(this::handleEnterKey);
+        mdp2.setOnKeyPressed(this::handleEnterKey);
     }
 
     private void handleEnterKey(KeyEvent event) {
@@ -89,10 +89,10 @@ public class InscriptionControleur {
     private void handleEnregistrer() {
         String nom = this.nom.getText();
         String prenom = this.prenom.getText();
-        String age = this.age.getText();
-        String motDePasse = this.mdp.getText();
+        String mdp = this.mdp.getText();
+        String mdp2 = this.mdp2.getText();
 
-        if (nom.isEmpty() || prenom.isEmpty() || age.isEmpty() || motDePasse.isEmpty()) {
+        if (nom.isEmpty() || prenom.isEmpty() || mdp.isEmpty() || mdp2.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Champs incomplets");
             alert.setHeaderText(null);
