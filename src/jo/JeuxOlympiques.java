@@ -13,6 +13,7 @@ import java.util.HashSet;
 
 import java.util.List;
 
+import applicationJo.database.BDAjout;
 import applicationJo.database.ConnexionMySQL;
 import jo.exception.*;
 import jo.sport.*;
@@ -124,7 +125,21 @@ public class JeuxOlympiques {
     public int getNbPays(){
         return this.getPays().size();
     }
-    //
+
+    public List<Sport> getSports(){
+        List<Sport> liste = new ArrayList<>();
+        for (Epreuve epreuve : lesEpreuves){
+            Sport sport = epreuve.getSport();
+            if (!liste.contains(sport)){
+                liste.add(sport);
+            }
+        }
+        return liste;
+    }
+
+    public int getNbSports(){
+        return getSports().size();
+    }
 
     /**
      * Ajoute une épreuve à la liste des épreuves des Jeux Olympiques.
@@ -467,6 +482,18 @@ public class JeuxOlympiques {
             rs2.close();
             if (athlete.getEquipe() != null){
                 // Faire en sorte que si athlete à une équipe, rechercher à quelle épreuve participe l'équipe dans la BD et la faire participer dans JO
+                ps = connexion.prepareStatement("select * from EQUIPE natural join COLLECTIVE where sexe = ? and nomSport = ? and categorieSport = ?");
+                ps.setString(1, rs.getString(2));
+                ps.setString(2, nomSport);
+                ps.setString(3, nomCategorie);
+                rs2 = ps.executeQuery();
+                if (rs2.next()){
+                    Epreuve<Equipe> epreuve = new Epreuve<>(sexe, sport);
+                    if (lesEpreuves.contains(epreuve)){
+                        epreuve = lesEpreuves.get(lesEpreuves.indexOf(epreuve));
+                    }
+                rs2.close();
+                }
             }
         }
         rs.close();
@@ -474,9 +501,43 @@ public class JeuxOlympiques {
 
     /**
      * Permet d'enregistrer les données dynamiques dans la base de données
-     * @param connexion Permet une connexion à la base de données
+     * @param bdAjout Permet d'ajouter les données à la base de données
      */
-    public void save_database(ConnexionMySQL connexion){
-
+    public void save_database(BDAjout bdAjout){
+        for (Pays pays : getPays()){
+            bdAjout.ajoutPays(pays);
+        }
+        for (Sport sport : getSports()){
+            bdAjout.ajoutSport(sport);
+        }
+        for (Epreuve epreuve : lesEpreuves){
+            if (epreuve.getParticipants().get(0) instanceof Athlete){
+                bdAjout.ajoutIndividuelle(epreuve);
+            }
+            else{
+                bdAjout.ajoutCollective(epreuve);
+            }
+        }
+        for (Equipe equipe : getEquipes()){
+            bdAjout.ajoutEquipe(equipe);
+        }
+        for (Athlete athlete : lesAthletes){
+            bdAjout.ajoutAthlete(athlete);
+            if (athlete.getEquipe() != null){
+                bdAjout.athleteParticipeEquipe(athlete, athlete.getEquipe());
+            }
+        }
+        for (Epreuve epreuve : lesEpreuves){
+            for (Object participant : epreuve.getParticipants()){
+                if (participant instanceof Athlete){
+                    Athlete athlete = (Athlete) participant;
+                    bdAjout.participantEpreuve(athlete, epreuve);
+                }
+                else{
+                    Equipe equipe = (Equipe) participant;
+                    bdAjout.participantEpreuve(equipe, epreuve);
+                }
+            }
+        }
     }
 }
