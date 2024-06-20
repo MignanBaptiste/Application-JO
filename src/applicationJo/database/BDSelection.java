@@ -17,8 +17,6 @@ import jo.sport.*;
 public class BDSelection {
     private ConnexionMySQL connexion;
     private JeuxOlympiques jo;
-    private Statement st;
-
     /**
      * Constructeur de la classe permettant de récupérer des classements des pays et des athlètes
      * @param connexion Connexion à la base de données
@@ -60,7 +58,7 @@ public class BDSelection {
     /**
      * Permet d'obtenir le classement des équipes dans une épreuve collective
      * @param epreuve Epreuve collective dont l'on veut connaître le classement
-     * @return  Le nom du pays en clé et son score en valeur
+     * @return Le nom du pays en clé et son score en valeur
      * @throws SQLException
      */
     public HashMap<String, Integer> classementCollective(Epreuve<Equipe> epreuve) throws SQLException{
@@ -225,7 +223,7 @@ public class BDSelection {
     }
 
     /**
-     * Permet d'obtenir les médailles d'or de chaque pays
+     * Permet d'obtenir un classement des pays en fonction du nombre de médailles d'or de chaque pays
      * @return Le pays et son nombre de médaille d'or
      */
     public HashMap<Pays, Integer> getMedaillesOR(){
@@ -233,6 +231,19 @@ public class BDSelection {
         HashMap<Pays, Classement> medailles = getTotalMedailles();
         for (Pays pays : jo.medaillesOr()){
             res.put(pays, medailles.get(pays).getOr());
+        }
+        return res;
+    }
+
+    /**
+     * Permet d'obtenir un classement des pays en fonction du nombre de médailles de chaque pays
+     * @return Le pays et son nombre de médailles
+     */
+    public HashMap<Pays, Integer> getNbMedailles(){
+        HashMap<Pays, Integer> res = new HashMap<>();
+        HashMap<Pays, Classement> medailles = getTotalMedailles();
+        for (Pays pays : jo.medaillesTotales()){
+            res.put(pays, medailles.get(pays).getOr() + medailles.get(pays).getArgent() + medailles.get(pays).getBronze());
         }
         return res;
     }
