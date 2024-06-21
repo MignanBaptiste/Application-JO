@@ -24,6 +24,11 @@ public class JournalisteSexeControleur {
     private BDAjout bdAjout;
     private BDSelection bdSelection;
 
+    @FXML
+    private Label infoLabel;
+    @FXML
+    private Label infoLabel2;
+
     public void setAjout(BDAjout bdAjout){
         this.bdAjout = bdAjout;
     }
@@ -39,11 +44,6 @@ public class JournalisteSexeControleur {
     public void setJO(JeuxOlympiques jeuxOlympiques){
         this.jeuxOlympiques = jeuxOlympiques;
     }
-
-    @FXML
-    private Label infoLabel;
-    @FXML
-    private Label infoLabel2;
 
     // Méthode pour recevoir les informations de la première page
     public void setSourceInfo(String info, String info2) {

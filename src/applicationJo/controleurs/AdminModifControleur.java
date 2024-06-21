@@ -1,5 +1,6 @@
 package applicationJo.controleurs;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -13,8 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jo.*;
+import jo.exception.InvalidTypeException;
 
 public class AdminModifControleur {
 
@@ -92,5 +95,22 @@ public class AdminModifControleur {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void handleCSV(ActionEvent event) throws InvalidTypeException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
     
+        File selectedFile = fileChooser.showOpenDialog(stage);
+    
+        if (selectedFile != null) {
+        this.jeuxOlympiques.load_csv(selectedFile.getAbsolutePath());
+        System.out.println("CSV chargé");
+        this.jeuxOlympiques.save_database(bdAjout);
+        System.out.println("CSV sauvegardé");
+
+    }
+}
 }
