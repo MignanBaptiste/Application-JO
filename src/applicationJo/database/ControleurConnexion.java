@@ -1,13 +1,13 @@
 package applicationJo.database;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
+import javafx.scene.Parent;
 import applicationJo.vues.JeuxIUTOlympiques;
 
 public class ControleurConnexion implements EventHandler<ActionEvent> {
     private ConnexionMySQL modele;
-    private JeuxIUTOlympiques vue;
-    ControleurConnexion(ConnexionMySQL modele, JeuxIUTOlympiques vue){
+    private Parent vue;
+    public ControleurConnexion(ConnexionMySQL modele, Parent vue){
         this.modele = modele;
         this.vue = vue;
     }

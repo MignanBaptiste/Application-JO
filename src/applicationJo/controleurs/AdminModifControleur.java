@@ -74,9 +74,9 @@ public class AdminModifControleur {
     private void handleRetourButton(ActionEvent event) {
         try {
             // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAdminConnexion.fxml"));
             Parent root = loader.load();
-            UserControleur controleur = loader.getController();
+            AdminConnexionControleur controleur = loader.getController();
             controleur.setConnexionMySQL(connexionMySQL);
             controleur.setJO(jeuxOlympiques);
             controleur.setAjout(bdAjout);
