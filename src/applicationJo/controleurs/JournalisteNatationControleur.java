@@ -3,6 +3,8 @@ package applicationJo.controleurs;
 import java.io.IOException;
 import java.util.Optional;
 
+import applicationJo.database.BDAjout;
+import applicationJo.database.BDSelection;
 import applicationJo.database.ConnexionMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +20,16 @@ public class JournalisteNatationControleur {
 
     private ConnexionMySQL connexionMySQL;
     private JeuxOlympiques jeuxOlympiques;
+    private BDAjout bdAjout;
+    private BDSelection bdSelection;
+
+    public void setAjout(BDAjout bdAjout){
+        this.bdAjout = bdAjout;
+    }
+
+    public void setSelection(BDSelection bdSelection){
+        this.bdSelection = bdSelection;
+    }
 
     public void setConnexionMySQL(ConnexionMySQL connexionMySQL) {
         this.connexionMySQL = connexionMySQL;
@@ -43,6 +55,8 @@ public class JournalisteNatationControleur {
                 AccueilControleur controleur = loader.getController();
                 controleur.setConnexionMySQL(connexionMySQL);
                 controleur.setJO(jeuxOlympiques);
+                controleur.setAjout(bdAjout);
+                controleur.setSelection(bdSelection);
 
                 // Changer la scène actuelle
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -65,6 +79,8 @@ public class JournalisteNatationControleur {
             JournalisteSportsControleur controleur = loader.getController();
             controleur.setConnexionMySQL(connexionMySQL);
             controleur.setJO(jeuxOlympiques);
+            controleur.setAjout(bdAjout);
+            controleur.setSelection(bdSelection);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -84,10 +100,12 @@ public class JournalisteNatationControleur {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Natation", "Natation 100 brasse");
-            journalisteSexeControleur.setConnexionMySQL(connexionMySQL);
-            journalisteSexeControleur.setJO(jeuxOlympiques);
+            JournalisteSexeControleur controleur = loader.getController();
+            controleur.setSourceInfo("Natation", "Natation 100 brasse");
+            controleur.setConnexionMySQL(connexionMySQL);
+            controleur.setJO(jeuxOlympiques);
+            controleur.setAjout(bdAjout);
+            controleur.setSelection(bdSelection);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -107,10 +125,12 @@ public class JournalisteNatationControleur {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSexe.fxml"));
             Parent root = loader.load();
 
-            JournalisteSexeControleur journalisteSexeControleur = loader.getController();
-            journalisteSexeControleur.setSourceInfo("Natation", "Natation relais libre");
-            journalisteSexeControleur.setConnexionMySQL(connexionMySQL);
-            journalisteSexeControleur.setJO(jeuxOlympiques);
+            JournalisteSexeControleur controleur = loader.getController();
+            controleur.setSourceInfo("Natation", "Natation relais libre");
+            controleur.setConnexionMySQL(connexionMySQL);
+            controleur.setJO(jeuxOlympiques);
+            controleur.setAjout(bdAjout);
+            controleur.setSelection(bdSelection);
 
             // Changer la scène actuelle
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
