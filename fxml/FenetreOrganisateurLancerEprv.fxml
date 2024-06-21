@@ -27,7 +27,6 @@
                      </VBox.margin>
                      <stylesheets>
                         <URL value="@style.css" />
-                        <URL value="@../Application-JO/fxml/style.css" />
                      </stylesheets>
                   </Button>
                </children>
@@ -69,7 +68,6 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <stylesheets>
-                        <URL value="@../Application-JO/fxml/style.css" />
                         <URL value="@style.css" />
                      </stylesheets>
                   </Button>

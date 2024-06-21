@@ -1,6 +1,7 @@
 package applicationJo.controleurs;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 
 import applicationJo.database.BDAjout;
@@ -104,6 +105,13 @@ public class AdminConnexionControleur {
     @FXML
     private void handleConnecter(ActionEvent event) {
         try {
+            this.connexionMySQL.connecter(nom.getText(), mdp.getText());
+        }
+        catch (SQLException e){
+            System.out.println("Il semble y avoir un problème avec la connexion");
+        }
+        if(this.connexionMySQL.isConnecte()){
+            try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAdminModif.fxml"));
             Parent root = loader.load();
             AdminModifControleur controleur = loader.getController();
@@ -121,7 +129,5 @@ public class AdminConnexionControleur {
             e.printStackTrace();
         }
     }
-
-
-    
+}
 }
