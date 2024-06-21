@@ -94,26 +94,31 @@ public class UserControleur {
     }
 
     @FXML
-    private void handleJournaliste(ActionEvent event) { //chemin par défault
-        try {
-                // Charger la vue d'accueil
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSport.fxml"));
-                Parent root = loader.load();
-                JournalisteSportsControleur controleur = loader.getController();
-                controleur.setConnexionMySQL(connexionMySQL);
-                controleur.setJO(jeuxOlympiques);
-                controleur.setAjout(bdAjout);
-                controleur.setSelection(bdSelection);
+    private void handleJournaliste(ActionEvent event) {
+        if (this.connexionMySQL.isConnecte()){
+            try {
+                        // Charger la vue d'accueil
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreJournalisteSport.fxml"));
+                        Parent root = loader.load();
+                        JournalisteSportsControleur controleur = loader.getController();
+                        controleur.setConnexionMySQL(connexionMySQL);
+                        controleur.setJO(jeuxOlympiques);
+                        controleur.setAjout(bdAjout);
+                        controleur.setSelection(bdSelection);
 
-                // Changer la scène actuelle
-                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                        // Changer la scène actuelle
+                        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+        else {
+            System.out.println("Vous n'êtes pas connecté à une base de donnée");
+        }
     }
 
     @FXML
@@ -141,25 +146,29 @@ public class UserControleur {
 
     @FXML
     private void handleOrga(ActionEvent event) { //chemin par défault
-        try {
-            // Charger la vue d'accueil
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreOrganisateurLancerEprv.fxml"));
-            Parent root = loader.load();
-            OrganisateurEpreuveControleur controleur = loader.getController();
-            controleur.setConnexionMySQL(connexionMySQL);
-            controleur.setJO(jeuxOlympiques);
-            controleur.setAjout(bdAjout);
-            controleur.setSelection(bdSelection);
+        if (this.connexionMySQL.isConnecte()){
+            try {
+                // Charger la vue d'accueil
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreOrganisateurLancerEprv.fxml"));
+                Parent root = loader.load();
+                OrganisateurEpreuveControleur controleur = loader.getController();
+                controleur.setConnexionMySQL(connexionMySQL);
+                controleur.setJO(jeuxOlympiques);
+                controleur.setAjout(bdAjout);
+                controleur.setSelection(bdSelection);
 
-            // Changer la scène actuelle
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+                // Changer la scène actuelle
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            System.out.println("Vous n'êtes pas connecté à une base de donnée");
         }
     }
-
 }

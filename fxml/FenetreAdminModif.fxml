@@ -51,7 +51,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="225.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Choisir un fichier CSV" textFill="WHITE">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="225.0" style="-fx-background-radius: 30;" styleClass="bouton" text="Choisir un fichier CSV" textFill="WHITE" onAction = "#handleCSV">
                      <VBox.margin>
                         <Insets top="50.0" />
                      </VBox.margin>
