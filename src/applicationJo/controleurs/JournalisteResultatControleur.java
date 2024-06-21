@@ -167,6 +167,7 @@ public class JournalisteResultatControleur {
                     System.out.println("Condition complétée");
                     HashMap<String, Integer> res;
                     res = bdSelection.classementCollective(epv);
+                    System.out.println("Classement fait");
                     int row = 0;
                     for (Map.Entry<String, Integer> entry : res.entrySet()) {
                         Label teamLabel = new Label(entry.getKey());
@@ -184,6 +185,7 @@ public class JournalisteResultatControleur {
                     System.out.println("Condition complétée");
                     HashMap<List<String>, Integer> res;
                     res = bdSelection.classementIndividuelle(epv);
+                    System.out.println("Classement fait");
                     int row = 0;
                     for (Map.Entry<List<String>, Integer> entry : res.entrySet()) {
                         Label athleteLabel = new Label(String.join(", ", entry.getKey()));

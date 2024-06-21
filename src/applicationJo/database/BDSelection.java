@@ -36,7 +36,7 @@ public class BDSelection {
     public HashMap<List<String>, Integer> classementIndividuelle(Epreuve<Athlete> epreuve) throws SQLException{
         HashMap<List<String>, Integer> res = new HashMap<>();
         // Parcourir la liste des participants d'une épreuve
-
+        System.out.println("ici");
         PreparedStatement ps = connexion.prepareStatement("select score, nomAthlete, prenomAthlete, nomPays from ATHLETE natural join EPREUVE where sexe = ? and nomSport = ? and categorieSport = ? order by score");
         if (epreuve.getSexe().equals(Sexe.FEMME)){
             ps.setString(1, "F");
@@ -47,6 +47,7 @@ public class BDSelection {
         ps.setString(2, epreuve.getSport().getSport());
         ps.setString(3, epreuve.getSport().getCategorie());
         ResultSet rs = ps.executeQuery();
+        System.out.println("QUERY");
         while (rs.next()){
             int score = rs.getInt(1);
             List<String> athlete = Arrays.asList(rs.getString(2), rs.getString(3), rs.getString(4)); 

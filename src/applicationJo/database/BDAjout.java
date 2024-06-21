@@ -28,7 +28,7 @@ public class BDAjout {
     public void ajoutAthlete(Athlete athlete){
         try {
             PreparedStatement ps = connexion.prepareStatement("insert into ATHLETE(nomAthlete, prenomAthlete, sexe, laForce, agilite, endurance, nomPays, score) values (?,?,?,?,?,?,?, -1)");
-            ps.setString(1, athlete.getNom());
+            ps.setString(1, athlete.getNomAthlete());
             ps.setString(2, athlete.getPrenomAthlete());
             if (athlete.getSexe().equals(Sexe.HOMME)){
                 ps.setString(3, "M");
@@ -42,7 +42,7 @@ public class BDAjout {
             ps.setString(7, athlete.getPays().getNom());
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Athlète déjà dans la base de données");
+            System.out.println("Athlète déjà dans la base de données " + athlete);
         }
     }
 
@@ -64,16 +64,20 @@ public class BDAjout {
      */
     public void ajoutEquipe(Equipe equipe){
         try {
-            if (nbEquipe(equipe) < 2){
-                PreparedStatement ps = connexion.prepareStatement("insert into EQUIPE(nomPays, nomSport, categorieSport, score) values (?, ?, ?, -1)");
-                ps.setString(1, equipe.getPays().getNom());
-                ps.setString(2, equipe.getSport().getSport());
-                ps.setString(2, equipe.getSport().getCategorie());
-                ps.executeUpdate();
+            PreparedStatement ps = connexion.prepareStatement("insert into EQUIPE(nomPays, nomSport, categorieSport, score, sexe) values (?, ?, ?, -1, ?)");
+            ps.setString(1, equipe.getPays().getNom());
+            ps.setString(2, equipe.getSport().getSport());
+            ps.setString(3, equipe.getSport().getCategorie());
+            String sexe;
+            if (equipe.getSexe().equals(Sexe.FEMME)){
+                sexe = "F";
             }
             else{
-                // Renvoyer qqc pour déclencher une alerte pour annoncer que ce pays à déjà assez d'équipe dans ce sport.
+                sexe = "M";
             }
+            ps.setString(4, sexe);
+            ps.executeUpdate();
+            
         } catch (SQLException e) {
             System.out.println("Equipe déjà dans la base de données");
         }
@@ -161,40 +165,20 @@ public class BDAjout {
     public void athleteParticipeEquipe(Athlete athlete, Equipe equipe){
         try {
             PreparedStatement ps;
-            // Mettre à jour le sexe d'un équipe s'il n'est pas défini car sinon le natural join ne fonctionne pas
-            st= connexion.createStatement();
-		    ResultSet rs = st.executeQuery("select IFNULL(sexe, 'N') sexe, nomSport, categorieSport, nomPays from EQUIPE where nomPays = "+equipe.getPays().getNom()+ " and sexe = NULL");
-            String sexe = "";
-            while (!rs.isLast() && !sexe.equals("N")){
-                rs.next();
-		        sexe = rs.getString(1);
-                if (sexe.equals("N")){
-                    ps = connexion.prepareStatement("UPDATE EQUIPE SET sexe = ? WHERE nomSport = ? and categorieSport = ? and nomPays = ?");
-                    if (athlete.getSexe().equals(Sexe.FEMME)){
-                        ps.setString(1, "F");
-                    }
-                    else{
-                        ps.setString(1, "M");
-                    }
-                    ps.setString(2, rs.getString(2));
-                    ps.setString(3, rs.getString(3));
-                    ps.setString(4, rs.getString(4));
-                    ps.executeUpdate();
-                }
-            }
-            rs.close();
             ps = connexion.prepareStatement("UPDATE ATHLETE SET nomSport = ? WHERE nomAthlete = ? and prenomAthlete = ?");
             ps.setString(1, equipe.getSport().getSport());
             ps.setString(2, athlete.getNom());
             ps.setString(3, athlete.getPrenomAthlete());
             ps.executeUpdate();
+            ps.close();
             ps = connexion.prepareStatement("UPDATE ATHLETE SET categorieSport = ? WHERE nomAthlete = ? and prenomAthlete = ?");
             ps.setString(1, equipe.getSport().getCategorie());
             ps.setString(2, athlete.getNom());
             ps.setString(3, athlete.getPrenomAthlete());
             ps.executeUpdate();
+            ps.close();
         } catch (Exception e) {
-            System.out.println("Impossible de faire entrer cet athlète dans l'équipe dans la base de données");
+            System.out.println("Impossible de faire entrer cet athlète dans l'équipe dans la base de données " + athlete + " " + equipe);
         }
     }
 
@@ -213,11 +197,13 @@ public class BDAjout {
                 ps.setString(2, athlete.getNom());
                 ps.setString(3, athlete.getPrenomAthlete());
                 ps.executeUpdate();
+                ps.close();
                 ps = connexion.prepareStatement("UPDATE ATHLETE SET categorieSport = ? WHERE nomAthlete = ? and prenomAthlete = ?");
                 ps.setString(1, epreuve.getSport().getCategorie());
                 ps.setString(2, athlete.getNom());
                 ps.setString(3, athlete.getPrenomAthlete());
                 ps.executeUpdate();
+                ps.close();
             }
             else{
                 // Alerte pour demander d'ajouter au moins un athlète à l'équipe avant de l'ajouter à l'épreuve car sinon ça le fait tout seul. 

@@ -111,6 +111,12 @@ public class AdminConnexionControleur {
             System.out.println("Il semble y avoir un problème avec la connexion");
         }
         if(this.connexionMySQL.isConnecte()){
+            // Marche pas
+            // try {
+            //     this.jeuxOlympiques.load_database(connexionMySQL);
+            // } catch (SQLException e) {
+            //     System.out.println("impossible de load");
+            // }
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../fxml/FenetreAdminModif.fxml"));
             Parent root = loader.load();
