@@ -88,7 +88,7 @@ public class JeuxOlympiques {
         List<Equipe> lesEquipes = new ArrayList<>();
         for (Athlete ath: this.lesAthletes){
             if (ath.getEquipe() != null){
-                if (lesEquipes.contains(ath.getEquipe())){
+                if (!lesEquipes.contains(ath.getEquipe())){
                     lesEquipes.add(ath.getEquipe());
                 }
             }
