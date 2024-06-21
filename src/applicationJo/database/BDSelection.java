@@ -52,6 +52,7 @@ public class BDSelection {
             List<String> athlete = Arrays.asList(rs.getString(2), rs.getString(3), rs.getString(4)); 
             res.put(athlete, score);
         }
+        rs.close();
         return res;
     }
 
@@ -78,6 +79,7 @@ public class BDSelection {
         while (rs.next()){
             res.put(rs.getString(1), rs.getInt(2));
         }
+        rs.close();
         return res;
     }
 
@@ -203,9 +205,11 @@ public class BDSelection {
                             pays.getClassement().addArgent();
                         }
                     }
+                    rs2.close();
                 }
             }
         }
+    rs.close();
     }
 
     /**

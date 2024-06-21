@@ -3,6 +3,9 @@ package jo;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,6 +13,7 @@ import java.util.HashSet;
 
 import java.util.List;
 
+import applicationJo.database.BDAjout;
 import applicationJo.database.ConnexionMySQL;
 import jo.exception.*;
 import jo.sport.*;
@@ -80,11 +84,13 @@ public class JeuxOlympiques {
      * Renvoie l'ensemle d'équipes participant aux Jeux Olympique de cette année
      * @return HashSet<Equipe> liste d'Equipe
      */
-    public HashSet<Equipe> getEquipes() {
-        HashSet<Equipe> lesEquipes = new HashSet<>();
+    public List<Equipe> getEquipes() {
+        List<Equipe> lesEquipes = new ArrayList<>();
         for (Athlete ath: this.lesAthletes){
             if (ath.getEquipe() != null){
-                lesEquipes.add(ath.getEquipe());
+                if (lesEquipes.contains(ath.getEquipe())){
+                    lesEquipes.add(ath.getEquipe());
+                }
             }
         }
         return lesEquipes;
@@ -119,7 +125,21 @@ public class JeuxOlympiques {
     public int getNbPays(){
         return this.getPays().size();
     }
-    //
+
+    public List<Sport> getSports(){
+        List<Sport> liste = new ArrayList<>();
+        for (Epreuve epreuve : lesEpreuves){
+            Sport sport = epreuve.getSport();
+            if (!liste.contains(sport)){
+                liste.add(sport);
+            }
+        }
+        return liste;
+    }
+
+    public int getNbSports(){
+        return getSports().size();
+    }
 
     /**
      * Ajoute une épreuve à la liste des épreuves des Jeux Olympiques.
@@ -378,15 +398,146 @@ public class JeuxOlympiques {
      * Permet de charger une base de donnée dans les données dynamiques (JeuxOlympiques)
      * @param connexion Permet une connexion à la base de données
      */
-    public void load_database(ConnexionMySQL connexion){
+    public void load_database(ConnexionMySQL connexion) throws SQLException{
         // Récupère les données
+        
+        // Parcours des athlètes
+        PreparedStatement ps = connexion.prepareStatement("select * from ATHLETE");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            // Création de l'athlète : nom, prenom, sexe, force, agilite, endurence, pays
+            Sexe sexe;
+            if (rs.getString(3).equals("F")){
+                sexe = Sexe.FEMME;
+            }
+            else{
+                sexe = Sexe.HOMME;
+            }
+            Pays pays = new Pays(rs.getString(7));
+            if (this.getPays().contains(pays)){
+                pays = this.getPays().get(this.getPays().indexOf(pays));
+            }
+            String nom = rs.getString(1);
+            String prenom = rs.getString(2);
+            int force = rs.getInt(4);
+            int agilite = rs.getInt(5);
+            int endurance = rs.getInt(6);
+            Athlete athlete = new Athlete(nom, prenom, sexe, force, agilite, endurance, pays);
+            if (this.lesAthletes.contains(athlete)){
+                athlete = lesAthletes.get(lesAthletes.indexOf(athlete));
+            }
+            String nomSport = rs.getString(9);
+            String nomCategorie = rs.getString(10);
+            Sport sport;
+            if (nomSport.equals("Athletisme")){
+                sport = new Athletisme(nomCategorie);
+            }
+            else if (nomSport.equals("Escrime")){
+                sport = new Escrime(nomCategorie);
+            }
+            else if (nomSport.equals("Handball")){
+                sport = new Handball(nomCategorie);
+            }
+            else if (nomSport.equals("Natation")){
+                sport = new Natation(nomCategorie);
+            }
+            else if (nomSport.equals("Volley-Ball")){
+                sport = new VolleyBall(nomCategorie);
+            }
+            else{
+                sport = new Natation(nomCategorie);
+            }
+            // Récupérer l'équipe de cette athlète s'il en a une
+            ps = connexion.prepareStatement("select nomPays, nomSport, categorieSport from EQUIPE natural join ATHLETE where nomAthlete = ? and prenomAthlete = ?");
+            ps.setString(1, nom);
+            ps.setString(2, prenom);
+            ResultSet rs2 = ps.executeQuery();
+            if (rs2.next()){
+                Equipe equipe = new Equipe(sport, pays);
+                if (this.getEquipes().contains(equipe)){
+                    equipe = this.getEquipes().get(this.getEquipes().indexOf(equipe));
+                }
+                try {
+                    equipe.addAthlete(athlete);
+                } catch (Exception e) {
+                    System.out.println("Problème de l'équipe "+ equipe);
+                }
+            }
+            rs2.close();
+            ps = connexion.prepareStatement("select nomAthlete, prenomAthlete from ATHLETE natural join INDIVIDUELLE where nomAthlete = ? and prenomAthlete = ?");
+            ps.setString(1, nom);
+            ps.setString(2, prenom);
+            rs2 = ps.executeQuery();
+            if (rs2.next()){
+                Epreuve<Athlete> epreuve = new Epreuve<>(sexe, sport);
+                if (this.lesEpreuves.contains(epreuve)){
+                    epreuve = lesEpreuves.get(lesEpreuves.indexOf(epreuve));
+                }
+                try {
+                    epreuve.addParticipant(athlete);
+                } catch (Exception e) {
+                    System.out.println("Impossible d'ajouter l'athlète à l'épreuve");
+                }
+            }
+            rs2.close();
+            if (athlete.getEquipe() != null){
+                // Faire en sorte que si athlete à une équipe, rechercher à quelle épreuve participe l'équipe dans la BD et la faire participer dans JO
+                ps = connexion.prepareStatement("select * from EQUIPE natural join COLLECTIVE where sexe = ? and nomSport = ? and categorieSport = ?");
+                ps.setString(1, rs.getString(2));
+                ps.setString(2, nomSport);
+                ps.setString(3, nomCategorie);
+                rs2 = ps.executeQuery();
+                if (rs2.next()){
+                    Epreuve<Equipe> epreuve = new Epreuve<>(sexe, sport);
+                    if (lesEpreuves.contains(epreuve)){
+                        epreuve = lesEpreuves.get(lesEpreuves.indexOf(epreuve));
+                    }
+                rs2.close();
+                }
+            }
+        }
+        rs.close();
     }
 
     /**
      * Permet d'enregistrer les données dynamiques dans la base de données
-     * @param connexion Permet une connexion à la base de données
+     * @param bdAjout Permet d'ajouter les données à la base de données
      */
-    public void save_database(ConnexionMySQL connexion){
-
+    public void save_database(BDAjout bdAjout){
+        for (Pays pays : getPays()){
+            bdAjout.ajoutPays(pays);
+        }
+        for (Sport sport : getSports()){
+            bdAjout.ajoutSport(sport);
+        }
+        for (Epreuve epreuve : lesEpreuves){
+            if (epreuve.getParticipants().get(0) instanceof Athlete){
+                bdAjout.ajoutIndividuelle(epreuve);
+            }
+            else{
+                bdAjout.ajoutCollective(epreuve);
+            }
+        }
+        for (Equipe equipe : getEquipes()){
+            bdAjout.ajoutEquipe(equipe);
+        }
+        for (Athlete athlete : lesAthletes){
+            bdAjout.ajoutAthlete(athlete);
+            if (athlete.getEquipe() != null){
+                bdAjout.athleteParticipeEquipe(athlete, athlete.getEquipe());
+            }
+        }
+        for (Epreuve epreuve : lesEpreuves){
+            for (Object participant : epreuve.getParticipants()){
+                if (participant instanceof Athlete){
+                    Athlete athlete = (Athlete) participant;
+                    bdAjout.participantEpreuve(athlete, epreuve);
+                }
+                else{
+                    Equipe equipe = (Equipe) participant;
+                    bdAjout.participantEpreuve(equipe, epreuve);
+                }
+            }
+        }
     }
 }
